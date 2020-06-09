@@ -3,6 +3,7 @@ package utn.frd.fvm;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Build;
@@ -11,10 +12,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btTuPerfil;
-    private Button btMovimientos;
-    private Button btRealizarPago;
-    private Button btCuentas;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -25,24 +22,20 @@ public class MainActivity extends AppCompatActivity {
         Toolbar mainToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(mainToolbar);
 
-        btCuentas = findViewById(R.id.btCuentas);
-        btTuPerfil = findViewById(R.id.btTuPerfil);
-        btMovimientos = findViewById(R.id.btMovimientos);
-        btRealizarPago = findViewById(R.id.btRealizarPago);
+        //private Button btTuPerfil;
+        //private Button btMovimientos;
+        //private Button btRealizarPago;
+        CardView btCuentas = findViewById(R.id.btCuentas);
+        //btTuPerfil = findViewById(R.id.btTuPerfil);
+        //btMovimientos = findViewById(R.id.btMovimientos);
+        //btRealizarPago = findViewById(R.id.btRealizarPago);
 
         btCuentas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                irACuentas();
+                Intent i = new Intent(v.getContext(), Cuentas.class);
+                v.getContext().startActivity(i);
             }
         });
     }
-    void irACuentas()
-    {
-        Intent i = new Intent(this,Cuentas.class);
-        startActivity(i);
-
-    }
-
-
 }
