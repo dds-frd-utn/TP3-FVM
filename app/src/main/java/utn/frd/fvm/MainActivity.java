@@ -26,14 +26,39 @@ public class MainActivity extends AppCompatActivity {
         //private Button btMovimientos;
         //private Button btRealizarPago;
         CardView btCuentas = findViewById(R.id.btCuentas);
+        CardView btRealizarPago = findViewById(R.id.btRealizarPago);
+        CardView btTuPerfil = findViewById(R.id.btTuPerfil);
+        CardView btMovimientos = findViewById(R.id.btMovimientos);
         //btTuPerfil = findViewById(R.id.btTuPerfil);
         //btMovimientos = findViewById(R.id.btMovimientos);
         //btRealizarPago = findViewById(R.id.btRealizarPago);
 
+
+        btRealizarPago.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(),realizarPago.class);
+                v.getContext().startActivity(i);
+            }
+         });
         btCuentas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), Cuentas.class);
+                v.getContext().startActivity(i);
+            }
+        });
+        btMovimientos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(),Movimientos.class);
+                v.getContext().startActivity(i);
+            }
+        });
+        btTuPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(),TuPerfil.class);
                 v.getContext().startActivity(i);
             }
         });
