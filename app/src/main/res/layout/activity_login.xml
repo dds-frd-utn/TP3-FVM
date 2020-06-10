@@ -58,6 +58,7 @@
         />
 
         <Button
+            android:id="@+id/btnLogin"
             android:background="@color/colorPrimaryDark"
             android:textColor="@android:color/white"
             android:paddingHorizontal="30dp"

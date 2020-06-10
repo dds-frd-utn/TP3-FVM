@@ -19,9 +19,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar mainToolbar = findViewById(R.id.my_toolbar);
-        setSupportActionBar(mainToolbar);
-
         CardView btCuentas = findViewById(R.id.btCuentas);
         CardView btRealizarPago = findViewById(R.id.btRealizarPago);
         CardView btTuPerfil = findViewById(R.id.btTuPerfil);
