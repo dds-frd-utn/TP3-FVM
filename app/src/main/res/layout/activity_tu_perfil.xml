@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:text="Nombre y Apellido"
                 android:textColor="@color/negroPuro"
-                android:textSize="20dp"
+                android:textSize="20dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:text="DNI"
                 android:textColor="@color/negroPuro"
-                android:textSize="20dp"
+                android:textSize="20dp"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:text="Direccion"
                 android:textColor="@color/negroPuro"
-                android:textSize="20dp"
+                android:textSize="20dp"/>
 
             <EditText
                 android:layout_width="match_parent"
