@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -9,10 +10,10 @@
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@drawable/gradient"
+        android:background="@color/colorPrimaryDark"
         android:elevation="5dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        />
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:navigationIcon="?attr/homeAsUpIndicator" />
 
     <LinearLayout
         android:layout_marginTop="30dp"
@@ -40,13 +41,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nombre y Apellido"
-                android:textColor="@color/negroPuro"
+                android:textColor="@android:color/black"
                 android:textSize="20dp"/>
 
             <EditText
@@ -56,24 +58,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="DNI"
-                android:textColor="@color/negroPuro"
-                android:textSize="20dp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="3983682" />
-        </LinearLayout>
-
-        <LinearLayout
+            android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -82,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Direccion"
-                android:textColor="@color/negroPuro"
+                android:textColor="@android:color/black"
                 android:textSize="20dp"/>
 
             <EditText
@@ -90,6 +75,53 @@
                 android:layout_height="wrap_content"
                 android:hint="Barrio Cerrado Altos De Campo Grande" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Usuario"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="mateo.ryser" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contraseña"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="*********" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modificar datos"
+            android:textColor="@android:color/white"
+            android:paddingHorizontal="20dp"
+            android:background="@color/colorPrimaryDark"
+        />
 
     </LinearLayout>
 
