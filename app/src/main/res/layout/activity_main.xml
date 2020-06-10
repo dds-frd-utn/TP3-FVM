@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@drawable/gradient"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
@@ -10,7 +10,7 @@
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@drawable/gradient"
+
         android:elevation="5dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
@@ -21,8 +21,10 @@
         android:layout_weight="2"
         android:layout_width="match_parent"
         android:layout_height="0dp">
+        android:back
 
         <TextView
+            android:textColor="@color/colorPrimary"
             android:id="@+id/textGrid"
             android:text="Banco FVM"
             android:textSize="34sp"
@@ -44,17 +46,18 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:textColor="@android:color/black"
+                android:textColor="@color/colorPrimary"
                 android:textIsSelectable="true"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:layout_marginBottom="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bienvenido, " />
 
             <TextView
+                android:textColor="@color/colorPrimary"
                 android:text="FEDERICO TOLEDO"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -62,7 +65,7 @@
     </RelativeLayout>
 
     <GridLayout
-        android:background="@drawable/gradient"
+
         android:columnCount="2"
         android:rowCount="2"
         android:alignmentMode="alignMargins"
