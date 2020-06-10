@@ -14,8 +14,8 @@
         <activity android:name=".RealizarPago" android:parentActivityName=".MainActivity"/>
         <activity android:name=".Cuentas" android:parentActivityName=".MainActivity"/>
         <activity android:name=".SignupActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
