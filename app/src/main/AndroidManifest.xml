@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Movimientos"></activity>
-        <activity android:name=".TuPerfil" />
-        <activity android:name=".realizarPago" />
-        <activity android:name=".Cuentas" />
+        <activity android:name=".Movimientos" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".TuPerfil" android:parentActivityName=".MainActivity" />
+        <activity android:name=".RealizarPago" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Cuentas" android:parentActivityName=".MainActivity"/>
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">

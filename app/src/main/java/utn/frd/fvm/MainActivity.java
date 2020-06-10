@@ -22,22 +22,16 @@ public class MainActivity extends AppCompatActivity {
         Toolbar mainToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(mainToolbar);
 
-        //private Button btTuPerfil;
-        //private Button btMovimientos;
-        //private Button btRealizarPago;
         CardView btCuentas = findViewById(R.id.btCuentas);
         CardView btRealizarPago = findViewById(R.id.btRealizarPago);
         CardView btTuPerfil = findViewById(R.id.btTuPerfil);
         CardView btMovimientos = findViewById(R.id.btMovimientos);
-        //btTuPerfil = findViewById(R.id.btTuPerfil);
-        //btMovimientos = findViewById(R.id.btMovimientos);
-        //btRealizarPago = findViewById(R.id.btRealizarPago);
 
 
         btRealizarPago.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(),realizarPago.class);
+                Intent i = new Intent(v.getContext(),RealizarPago.class);
                 v.getContext().startActivity(i);
             }
          });
