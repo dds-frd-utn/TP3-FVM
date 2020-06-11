@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +24,12 @@ public class MainActivity extends AppCompatActivity {
         CardView btRealizarPago = findViewById(R.id.btRealizarPago);
         CardView btTuPerfil = findViewById(R.id.btTuPerfil);
         CardView btMovimientos = findViewById(R.id.btMovimientos);
+        TextView textUsuario = findViewById(R.id.textUsuario);
 
+        //Mostrar el nombre de usuario
+        Intent i = getIntent();
+        String usuario = i.getStringExtra("EXTRA_USUARIO");
+        textUsuario.setText(usuario);
 
         btRealizarPago.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,5 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 v.getContext().startActivity(i);
             }
         });
+
     }
+
 }
