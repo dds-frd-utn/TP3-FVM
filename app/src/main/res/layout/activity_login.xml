@@ -39,6 +39,7 @@
         android:layout_height="match_parent">
 
         <EditText
+            android:id="@+id/inputUsuario"
             android:elevation="2dp"
             android:hint="Usuario"
             android:padding="10dp"
@@ -48,6 +49,7 @@
         />
 
         <EditText
+            android:id="@+id/inputPassword"
             android:elevation="2dp"
             android:layout_marginTop="40dp"
             android:hint="Contraseña"
@@ -82,6 +84,7 @@
             />
 
             <TextView
+                android:id="@+id/textSignup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="hacelo aca"
