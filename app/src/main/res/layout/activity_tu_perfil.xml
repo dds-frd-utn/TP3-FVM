@@ -53,6 +53,7 @@
                 android:textSize="20dp"/>
 
             <EditText
+                android:id="@+id/inputNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Mateo Ryser" />
@@ -72,6 +73,7 @@
                 android:textSize="20dp"/>
 
             <EditText
+                android:id="@+id/inputDireccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Barrio Cerrado Altos De Campo Grande" />
@@ -91,6 +93,7 @@
                 android:textSize="20dp"/>
 
             <EditText
+                android:id="@+id/inputUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="mateo.ryser" />
@@ -110,12 +113,14 @@
                 android:textSize="20dp"/>
 
             <EditText
+                android:id="@+id/inputPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="*********" />
         </LinearLayout>
 
         <Button
+            android:id="@+id/btnModificarDatos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Modificar datos"

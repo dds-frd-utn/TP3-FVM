@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Mostrar el nombre de usuario
         Intent i = getIntent();
+        final Integer id = i.getIntExtra("EXTRA_ID_CLIENTE", 0);
         String usuario = i.getStringExtra("EXTRA_USUARIO");
         textUsuario.setText(usuario);
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(),RealizarPago.class);
+                i.putExtra("ID", id);
                 v.getContext().startActivity(i);
             }
          });
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), Cuentas.class);
+                i.putExtra("ID", id);
                 v.getContext().startActivity(i);
             }
         });
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(),Movimientos.class);
+                i.putExtra("ID", id);
                 v.getContext().startActivity(i);
             }
         });
@@ -56,10 +60,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(),TuPerfil.class);
+                i.putExtra("ID", id);
                 v.getContext().startActivity(i);
             }
         });
 
     }
+
+
 
 }
