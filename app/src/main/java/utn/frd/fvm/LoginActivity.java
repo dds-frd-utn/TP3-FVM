@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             try {
-                result = RESTService.restCall("http://192.168.100.6:8080/Banco-FVM/rest/clientes/login", "POST", datosUsuario);
+                result = RESTService.restCall("http://192.168.100.6:8080/TP1-FVM/rest/clientes/login", "POST", datosUsuario);
                 //result = RESTService.makeGetRequest("http://localhost/8080/Banco-FVM/rest/clientes/" + this.usuario);
             } catch (Exception e) {
                 Log.d("LOGGER", e.toString());
@@ -80,29 +80,27 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) { //Lo que retorna doInBackground, es lo que consume onPostExecute
             if(result != null) {
-                if(result.length() > 0) {
-                    try {
-                        JSONObject cliente = new JSONObject(result);
+                try {
+                    JSONObject cliente = new JSONObject(result);
+                    if(cliente.getInt("error_code") != 1) {
                         Integer id = cliente.getInt("id");
-
                         Intent i = new Intent(LoginActivity.this, MainActivity.class);
                         i.putExtra("EXTRA_ID_CLIENTE", id);
                         i.putExtra("EXTRA_USUARIO", this.usuario);
                         startActivity(i);
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                    } else {
+                        //Error en los datos de ingreso
+                        Toast loginError = Toast.makeText(getApplicationContext(), "Error en los datos de ingreso", Toast.LENGTH_LONG);
+                        loginError.show();
+                        EditText usuario = findViewById(R.id.inputUsuario);
+                        EditText password = findViewById(R.id.inputPassword);
+                        usuario.setText("");
+                        password.setText("");
                     }
-                } else {
-                    //TODO mensaje de usuario incorrecto
-                    //Error en los datos de ingreso
-                    Toast loginError = Toast.makeText(getApplicationContext(), "Error en los datos de ingreso", Toast.LENGTH_SHORT);
-                    loginError.show();
-                    EditText usuario = findViewById(R.id.inputUsuario);
-                    EditText password = findViewById(R.id.inputPassword);
-                    usuario.setText("");
-                    password.setText("");
+                } catch(JSONException e) {
+                    e.printStackTrace();
                 }
+
             }
         }
     }
