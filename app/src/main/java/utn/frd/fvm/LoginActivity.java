@@ -67,7 +67,6 @@ public class LoginActivity extends AppCompatActivity {
             }
             try {
                 result = RESTService.restCall("http://192.168.100.6:8080/TP1-FVM/rest/clientes/login", "POST", datosUsuario);
-                //result = RESTService.makeGetRequest("http://localhost/8080/Banco-FVM/rest/clientes/" + this.usuario);
             } catch (Exception e) {
                 Log.d("LOGGER", e.toString());
             }
