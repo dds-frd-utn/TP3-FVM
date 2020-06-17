@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Transferir dinero"
+            android:text="Realizar pago"
             android:textSize="40sp"
             android:textStyle="bold"
             android:gravity="center"/>
@@ -40,19 +40,19 @@
         android:layout_height="match_parent">
 
         <Spinner
+            android:id="@+id/inputCuentaOrigen"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="wrap_content"
             android:elevation="2dp"
             android:layout_marginTop="20dp"
-            android:padding="10dp"
-            android:autofillHints="hola"
+            android:padding="5dp"
             />
 
         <EditText
+            android:id="@+id/inputCuentaDestino"
             android:elevation="2dp"
-            android:inputType="number"
             android:layout_marginTop="20dp"
-            android:hint="CBU destinario"
+            android:hint="Alias destinatario"
             android:padding="10dp"
             android:background="@android:color/white"
             android:layout_width="match_parent"
@@ -60,6 +60,7 @@
             />
 
         <EditText
+            android:id="@+id/inputCantidad"
             android:elevation="2dp"
             android:layout_marginTop="20dp"
             android:hint="Cantidad"
@@ -72,6 +73,7 @@
 
 
         <Button
+            android:id="@+id/btnEnviarDinero"
             android:background="@color/colorPrimaryDark"
             android:textColor="@android:color/white"
             android:paddingHorizontal="30dp"
