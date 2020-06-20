@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) { //Lo que retorna doInBackground, es lo que consume onPostExecute
-            if(result != null) {
+            if(!result.equals("Connection refused")) {
                 try {
                     JSONObject cliente = new JSONObject(result);
                     if(cliente.getInt("error_code") != 1) {
@@ -100,6 +100,8 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+            } else {
+                Toast.makeText(getApplicationContext(), "Servidor apagado", Toast.LENGTH_SHORT).show();
             }
         }
     }

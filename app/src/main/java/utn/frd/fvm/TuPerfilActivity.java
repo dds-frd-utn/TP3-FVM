@@ -15,7 +15,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class TuPerfil extends AppCompatActivity {
+public class TuPerfilActivity extends AppCompatActivity {
 
     private EditText inputNombre;
     private EditText inputDireccion;

@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class RealizarPago extends AppCompatActivity {
+public class RealizarPagoActivity extends AppCompatActivity {
 
     private Spinner inputCuentaOrigen;
     private EditText inputCuentaDestino;
@@ -58,8 +58,11 @@ public class RealizarPago extends AppCompatActivity {
         btnEnviarDinero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("ORIGEN", inputCuentaOrigen.getSelectedItem().toString());
-                new VerificarSaldo(inputCuentaOrigen.getSelectedItem().toString()).execute();
+                if(!inputCantidad.getText().toString().equals("")) {
+                    new VerificarSaldo(inputCuentaOrigen.getSelectedItem().toString()).execute();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Ingrese una cantidad", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -84,7 +87,6 @@ public class RealizarPago extends AppCompatActivity {
                 e.printStackTrace();
                 return null;
             }
-
         }
 
         @Override
@@ -95,7 +97,7 @@ public class RealizarPago extends AppCompatActivity {
                 ArrayAdapter<String> adapter;
                 listaAlias.add("Seleccione una cuenta");
                 for(int i=0; i < resJson.length(); i++) {
-                    Log.d("LLAVE",resJson.getJSONObject(i).getString("aliasCuenta"));
+                    //Log.d("ALIAS",resJson.getJSONObject(i).getString("aliasCuenta"));
                     listaAlias.add(resJson.getJSONObject(i).getString("aliasCuenta"));
                 }
                 adapter = new ArrayAdapter<String>(this.context,R.layout.spinner_item,listaAlias){
@@ -179,6 +181,7 @@ public class RealizarPago extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             String result;
             try {
+                Log.d("ALIAS", this.alias);
                 result = RESTService.makeGetRequest("http://192.168.100.6:8080/TP1-FVM/rest/cuentas/alias/"+this.alias);
             } catch(Exception e) {
                 e.printStackTrace();
@@ -192,7 +195,7 @@ public class RealizarPago extends AppCompatActivity {
             try {
                 JSONObject resJson = new JSONObject(result);
                 JSONObject transaccion = new JSONObject();
-                transaccion.put("cuentaOrigen", resJson.getInt("id"))
+                transaccion.put("cuentaOrigen", resJson.getString("aliasCuenta"))
                            .put("cuentaDestino", inputCuentaDestino.getText().toString())
                            .put("monto", Integer.parseInt(inputCantidad.getText().toString()))
                            .put("tipoTransaccion", 0) //TODO hay que ver que tipo es

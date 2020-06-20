@@ -12,10 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Movimientos" android:parentActivityName=".MainActivity"/>
-        <activity android:name=".TuPerfil" android:parentActivityName=".MainActivity" />
-        <activity android:name=".RealizarPago" android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Cuentas" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".MovimientosActivity" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".TuPerfilActivity" android:parentActivityName=".MainActivity" />
+        <activity android:name=".RealizarPagoActivity" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".CuentasActivity" android:parentActivityName=".MainActivity"/>
         <activity android:name=".SignupActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity">

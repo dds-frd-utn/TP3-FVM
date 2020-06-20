@@ -2,14 +2,12 @@ package utn.frd.fvm;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         btRealizarPago.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(),RealizarPago.class);
+                Intent i = new Intent(v.getContext(), RealizarPagoActivity.class);
                 i.putExtra("ID", id);
                 v.getContext().startActivity(i);
             }
@@ -43,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btCuentas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(), Cuentas.class);
+                Intent i = new Intent(v.getContext(), CuentasActivity.class);
                 i.putExtra("ID", id);
                 v.getContext().startActivity(i);
             }
@@ -51,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         btMovimientos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(),Movimientos.class);
+                Intent i = new Intent(v.getContext(), MovimientosActivity.class);
                 i.putExtra("ID", id);
                 v.getContext().startActivity(i);
             }
@@ -59,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         btTuPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(),TuPerfil.class);
+                Intent i = new Intent(v.getContext(), TuPerfilActivity.class);
                 i.putExtra("ID", id);
                 v.getContext().startActivity(i);
             }
