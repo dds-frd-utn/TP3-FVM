@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             try {
-                result = RESTService.restCall("http://192.168.100.6:8080/TP1-FVM/rest/clientes/login", "POST", datosUsuario);
+                result = RESTService.restCall("http://192.168.0.151:8080/TP1-FVM/rest/clientes/login", "POST", datosUsuario);
             } catch (Exception e) {
                 Log.d("LOGGER", e.toString());
             }
@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                         Integer id = cliente.getInt("id");
                         Intent i = new Intent(LoginActivity.this, MainActivity.class);
                         i.putExtra("EXTRA_ID_CLIENTE", id);
-                        i.putExtra("EXTRA_USUARIO", this.usuario);
+                        i.putExtra("EXTRA_USUARIO", cliente.getString("nombre"));
                         startActivity(i);
                     } else {
                         //Error en los datos de ingreso
