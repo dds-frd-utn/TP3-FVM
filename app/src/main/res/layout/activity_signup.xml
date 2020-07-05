@@ -39,6 +39,7 @@
         android:layout_height="match_parent">
 
         <EditText
+            android:id="@+id/nombreApellido"
             android:elevation="2dp"
             android:hint="Nombre y apellido"
             android:padding="10dp"
@@ -48,6 +49,7 @@
             />
 
         <EditText
+            android:id="@+id/usuario"
             android:elevation="2dp"
             android:layout_marginTop="20dp"
             android:hint="Usuario"
@@ -58,6 +60,18 @@
             />
 
         <EditText
+            android:id="@+id/direccion"
+            android:elevation="2dp"
+            android:layout_marginTop="20dp"
+            android:hint="Direccion"
+            android:padding="10dp"
+            android:background="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <EditText
+            android:id="@+id/password"
             android:elevation="2dp"
             android:layout_marginTop="20dp"
             android:hint="Contraseña"
@@ -68,9 +82,10 @@
             />
 
         <EditText
+            android:id="@+id/confPassword"
             android:elevation="2dp"
             android:layout_marginTop="20dp"
-            android:hint="Direccion"
+            android:hint="Confirmar Contraseña"
             android:padding="10dp"
             android:background="@android:color/white"
             android:layout_width="match_parent"
@@ -78,6 +93,7 @@
             />
 
         <Button
+            android:id="@+id/btnRegistrarse"
             android:background="@color/colorPrimaryDark"
             android:textColor="@android:color/white"
             android:paddingHorizontal="30dp"
