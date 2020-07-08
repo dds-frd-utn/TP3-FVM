@@ -81,9 +81,16 @@ public class MovimientosActivity extends AppCompatActivity {
         btnVerMovimientos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!inputCantidad.getText().toString().equals("")) {
-                    mAdapter.clear();
-                    new GetUltimosMovimientos(idCuenta, Integer.parseInt(inputCantidad.getText().toString())).execute();
+                String cant = inputCantidad.getText().toString();
+                if(!cant.equals("")) {
+
+                    try {
+                        mAdapter.clear();
+                        new GetUltimosMovimientos(idCuenta, Integer.parseInt(inputCantidad.getText().toString())).execute();
+                    } catch (NumberFormatException e) {
+                        Toast.makeText(getApplicationContext(), "Ingrese un numero valido", Toast.LENGTH_SHORT).show();
+                    }
+
                 } else {
                     Toast.makeText(getApplicationContext(), "Ingrese una cantidad", Toast.LENGTH_SHORT).show();
                 }
@@ -106,7 +113,7 @@ public class MovimientosActivity extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             String result;
             try {
-                result = RESTService.makeGetRequest("http://192.168.100.6:8080/TP1-FVM/rest/transacciones/"+this.idCuenta+"/ultimas/"+this.cantidad);
+                result = RESTService.makeGetRequest(RESTService.apiUrl() + "rest/transacciones/"+this.idCuenta+"/ultimas/"+this.cantidad);
             } catch(Exception e) {
                 e.printStackTrace();
                 return null;
@@ -155,7 +162,7 @@ public class MovimientosActivity extends AppCompatActivity {
             protected String doInBackground(String... strings) {
                 String result;
                 try {
-                    result = RESTService.makeGetRequest("http://192.168.100.6:8080/TP1-FVM/rest/cuentas/clientes/"+this.id);
+                    result = RESTService.makeGetRequest(RESTService.apiUrl() + "rest/cuentas/clientes/"+this.id);
                     return result;
                 } catch(Exception e) {
                     e.printStackTrace();

@@ -81,7 +81,7 @@ public class RealizarPagoActivity extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             String result;
             try {
-                result = RESTService.makeGetRequest("http://192.168.100.6:8080/TP1-FVM/rest/cuentas/clientes/"+this.id);
+                result = RESTService.makeGetRequest(RESTService.apiUrl() + "rest/cuentas/clientes/"+this.id);
                 return result;
             } catch(Exception e) {
                 e.printStackTrace();
@@ -155,7 +155,7 @@ public class RealizarPagoActivity extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             String result;
             try {
-                result = RESTService.restCall("http://192.168.100.6:8080/TP1-FVM/rest/transacciones/realizar", "POST", transaccion);
+                result = RESTService.restCall(RESTService.apiUrl() + "rest/transacciones/realizar", "POST", transaccion);
             } catch(Exception e) {
                 e.printStackTrace();
                 Toast.makeText(getApplicationContext(),"Ocurrio un error, intente mas tarde",Toast.LENGTH_SHORT).show();
@@ -166,7 +166,13 @@ public class RealizarPagoActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            Toast.makeText(getApplicationContext(),s, Toast.LENGTH_SHORT).show();
+            try {
+                Log.d("RP", s);
+                JSONObject res = new JSONObject(s);
+                Toast.makeText(getApplicationContext(),res.getString("descripcion"), Toast.LENGTH_SHORT).show();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -179,11 +185,11 @@ public class RealizarPagoActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... strings) {
-            String result;
+            String result = "";
             try {
-                Log.d("ALIAS", this.alias);
-                result = RESTService.makeGetRequest("http://192.168.100.6:8080/TP1-FVM/rest/cuentas/alias/"+this.alias);
+                result = RESTService.makeGetRequest(RESTService.apiUrl() + "rest/cuentas/alias/"+this.alias);
             } catch(Exception e) {
+                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
                 return null;
             }
@@ -195,12 +201,11 @@ public class RealizarPagoActivity extends AppCompatActivity {
             try {
                 JSONObject resJson = new JSONObject(result);
                 JSONObject transaccion = new JSONObject();
-                transaccion.put("cuentaOrigen", resJson.getString("aliasCuenta"))
+                transaccion.put("cuentaOrigen", resJson.getString("aliasCuenta").toUpperCase())
                            .put("cuentaDestino", inputCuentaDestino.getText().toString())
                            .put("monto", Integer.parseInt(inputCantidad.getText().toString()))
                            .put("tipoTransaccion", 0) //TODO hay que ver que tipo es
                            .put("fecha", new Date());
-
                 int saldo = resJson.getInt("saldo");
                 int monto = transaccion.getInt("monto");
 

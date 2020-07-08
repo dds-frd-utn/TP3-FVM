@@ -62,7 +62,7 @@ public class TuPerfilActivity extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             String result;
             try {
-                result = RESTService.makeGetRequest("http://192.168.100.6:8080/TP1-FVM/rest/clientes/" + this.id);
+                result = RESTService.makeGetRequest(RESTService.apiUrl() + "rest/clientes/" + this.id);
             } catch(Exception e) {
                 e.printStackTrace();
                 return null;
@@ -99,7 +99,7 @@ public class TuPerfilActivity extends AppCompatActivity {
                              .put("direccion", inputDireccion.getText())
                              .put("usuario", inputUsuario.getText())
                              .put("password", inputPassword.getText());
-                result = RESTService.restCall("http://192.168.100.6:8080/TP1-FVM/rest/clientes/"+ this.id,"PUT", updateCliente);
+                result = RESTService.restCall(RESTService.apiUrl() + "rest/clientes/"+ this.id,"PUT", updateCliente);
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;

@@ -67,7 +67,7 @@ public class SignupActivity extends AppCompatActivity {
                 nuevoCliente.put("nombre",this.nombreApellido);
                 nuevoCliente.put("direccion",this.direccion);
                 nuevoCliente.put("password",this.password);
-                result = RESTService.restCall("http://192.168.0.151:8080/TP1-FVM/rest/clientes", "POST",nuevoCliente);
+                result = RESTService.restCall(RESTService.apiUrl() + "rest/clientes", "POST",nuevoCliente);
 
             } catch (JSONException e) {
                 e.printStackTrace();

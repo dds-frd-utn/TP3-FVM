@@ -73,7 +73,7 @@ public class CuentasActivity extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             String result;
             try {
-                result = RESTService.makeGetRequest("http://192.168.100.6:8080/TP1-FVM/rest/cuentas/clientes/"+this.id);
+                result = RESTService.makeGetRequest(RESTService.apiUrl() + "rest/cuentas/clientes/"+this.id);
                 return result;
             } catch(Exception e) {
                 e.printStackTrace();
