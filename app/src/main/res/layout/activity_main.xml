@@ -65,6 +65,9 @@
 
         <!-- Realizar pago -->
         <androidx.cardview.widget.CardView
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/btRealizarPago"
             android:layout_height="0dp"
             android:layout_width="0dp"
@@ -104,6 +107,9 @@
 
         <!-- Movimientos -->
         <androidx.cardview.widget.CardView
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/btMovimientos"
             android:layout_height="0dp"
             android:layout_width="0dp"
@@ -143,6 +149,9 @@
 
         <!-- Bonos -->
         <androidx.cardview.widget.CardView
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/btTuPerfil"
             android:layout_height="0dp"
             android:layout_width="0dp"
@@ -183,6 +192,9 @@
 
         <!-- Cuentas -->
         <androidx.cardview.widget.CardView
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/btCuentas"
             android:layout_height="0dp"
             android:layout_width="0dp"
@@ -221,5 +233,12 @@
         </androidx.cardview.widget.CardView>
 
     </GridLayout>
+
+    <Button
+        android:id="@+id/logoutBtn"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar sesion" />
 
 </LinearLayout>

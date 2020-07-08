@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +23,13 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //Si hay una sesion activa, ir al main
+        SharedPreferences pref = getSharedPreferences("myPrefs", MODE_PRIVATE);
+        if(pref.getInt("userId", -1) != -1) {
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+        }
 
         Button btnLogin = findViewById(R.id.btnLogin);
         TextView textSignup = findViewById(R.id.textSignup);
@@ -66,9 +74,10 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             try {
-                result = RESTService.restCall("http://192.168.0.151:8080/TP1-FVM/rest/clientes/login", "POST", datosUsuario);
+                result = RESTService.restCall(RESTService.apiUrl() +  "rest/clientes/login", "POST", datosUsuario);
             } catch (Exception e) {
                 Log.d("LOGGER", e.toString());
+                e.printStackTrace();
             }
             if (result != null) {
                 Log.d("LOGGER", result.toString());
@@ -84,8 +93,8 @@ public class LoginActivity extends AppCompatActivity {
                     if(cliente.getInt("error_code") != 1) {
                         Integer id = cliente.getInt("id");
                         Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                        i.putExtra("EXTRA_ID_CLIENTE", id);
-                        i.putExtra("EXTRA_USUARIO", cliente.getString("nombre"));
+                        SharedPreferences preferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
+                        preferences.edit().putInt("userId", id).apply();
                         startActivity(i);
                     } else {
                         //Error en los datos de ingreso
