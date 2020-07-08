@@ -14,6 +14,10 @@ import java.net.URL;
 
 public abstract class RESTService {
 
+    public static String apiUrl() {
+        return "http://192.168.100.11:8080/TP1-FVM/";
+    }
+
     public static String restCall(String restUrl, String method, JSONObject params) {
         String result = "";
         URL url;
