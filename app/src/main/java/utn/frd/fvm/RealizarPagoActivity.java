@@ -204,7 +204,7 @@ public class RealizarPagoActivity extends AppCompatActivity {
                 transaccion.put("cuentaOrigen", resJson.getString("aliasCuenta").toUpperCase())
                            .put("cuentaDestino", inputCuentaDestino.getText().toString())
                            .put("monto", Integer.parseInt(inputCantidad.getText().toString()))
-                           .put("tipoTransaccion", 0) //TODO hay que ver que tipo es
+                           .put("tipoTransaccion", 1) //Compra-Venta = 1
                            .put("fecha", new Date());
                 int saldo = resJson.getInt("saldo");
                 int monto = transaccion.getInt("monto");

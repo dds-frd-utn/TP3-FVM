@@ -139,7 +139,7 @@ public class MovimientosActivity extends AppCompatActivity {
                         //Es receptor
                         msg = movimiento.getString("aliasOrigen") + " te pago";
                     }
-                    Movimiento mov = new Movimiento(movimiento.getInt("monto"),msg, new Date());
+                    Movimiento mov = new Movimiento(movimiento.getDouble("monto"),msg, new Date());
                     listaMovimientos.add(mov);
                 }
                 mAdapter.notifyDataSetChanged();

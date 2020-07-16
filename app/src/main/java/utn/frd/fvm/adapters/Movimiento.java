@@ -3,11 +3,11 @@ package utn.frd.fvm.adapters;
 import java.util.Date;
 
 public class Movimiento {
-    private int monto;
+    private double monto;
     private String msg;
     private Date fecha;
 
-    public Movimiento(int monto, String msg, Date fecha) {
+    public Movimiento(double monto, String msg, Date fecha) {
         this.monto = monto;
         this.msg = msg;
         this.fecha = fecha;
@@ -29,7 +29,7 @@ public class Movimiento {
         this.msg = msg;
     }
 
-    public int getMonto() {
+    public double getMonto() {
         return monto;
     }
 
